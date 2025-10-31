@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SnapTender — AI One-Pager (Compact)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.cdnfonts.com/css/riosark" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Brand */
+  :root{
+    --ink:#111827; --muted:#5A668E; --line:#E5E7EB; --soft:#F9FAFB; --bg:#FFFFFF;
+    --primary:#433AFF; --primary-2:#8A3FFC;
+  }
+  html,body{ background:var(--bg); color:var(--ink); font-family:'Roboto Mono', monospace; -webkit-font-smoothing:antialiased;}
+  .font-riosark{ font-family:'Riosark', sans-serif; }
+
+  /* Compact spacing & typography */
+  .wrap{ max-width:980px; }
+  .h1{ font-family:'Riosark',sans-serif; font-weight:800; font-size:clamp(28px,4vw,40px); line-height:1.15; }
+  .h2{ font-family:'Riosark',sans-serif; font-weight:800; font-size:clamp(18px,2.2vw,24px); line-height:1.2; }
+  .lead{ color:#4b5563; font-size:14px; }
+  .badge{ border:1px solid var(--line); border-radius:999px; padding:.2rem .55rem; font-size:11px; background:#fff; }
+  .card{ border:1px solid var(--line); background:#fff; border-radius:12px; padding:12px; }
+  .soft{ border:1px solid var(--line); background:var(--soft); border-radius:12px; padding:12px; }
+  .kpi{ font-weight:800; font-size:22px; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; font-weight:700; border-radius:.55rem; padding:.6rem .9rem; border:2px solid transparent; }
+  .btn-primary{ background:var(--primary); color:#fff; }
+  .btn-primary:hover{ background:var(--primary-2); }
+  .btn-ghost{ background:#fff; border-color:var(--muted); color:var(--muted); }
+  .li-dot{ position:relative; padding-left:1rem; }
+  .li-dot:before{ content:''; position:absolute; left:0; top:.6rem; width:7px; height:7px; border-radius:999px; background:var(--primary-2); }
+
+  /* --- NEW: deterministic 2-up grids (including print) --- */
+  .two-col{ display:grid; grid-template-columns:1fr; gap:12px; }
+  @media (min-width: 768px){ .two-col{ grid-template-columns:repeat(2,1fr); } }
+  @media print{ .two-col{ grid-template-columns:repeat(2,1fr) !important; } }
+
+  .how-grid{ display:grid; grid-template-columns:1fr; gap:12px; }
+  /* 3 cols on desktop screen, but 2 cols in print to save space */
+  @media (min-width: 768px){ .how-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media print{ .how-grid{ grid-template-columns:repeat(2,1fr) !important; } }
+
+  /* Print: 2–3 A4 pages */
+  @page{ size:A4; margin:8mm; }
+  @media print{
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .no-print{ display:none !important; }
+    .page{ box-shadow:none !important; padding:0 !important; }
+    a[href^="http"]:after{ content:" (" attr(href) ")"; font-size:9px; color:#64748b; }
+    .avoid-break{ break-inside:avoid; page-break-inside:avoid; }
+    .tight{ margin-top:0 !important; margin-bottom:.4rem !important; }
+  }
+</style>
+</head>
+<body>
+<main class="page mx-auto wrap px-5 py-6">
+
+  <!-- Header (condensed) -->
+  <header class="flex items-center justify-between gap-3 mb-5">
+    <div class="font-riosark text-xl font-bold leading-5">
+      <span class="italic">snap</span><br>tender.ai
+    </div>
+    <nav class="hidden md:flex items-center gap-1">
+      <span class="badge">Enterprise-ready</span>
+      <span class="badge">HVAC & Manufacturing</span>
+      <span class="badge">DACH Focus</span>
+    </nav>
+    <div class="no-print">
+      <a href="#cta" class="btn btn-primary">Request a Demo</a>
+    </div>
+  </header>
+
+  <!-- Hero (tight) -->
+  <section class="mb-6">
+    <h1 class="h1">Cut Tender Assessment Time by <span style="color:var(--primary-2)">70%</span></h1>
+    <p class="lead mt-2">
+      AI platform that automates RFQ-to-SKU matching. Process <strong>5× more tenders</strong> with <strong>90%+ accuracy</strong>, respond in hours instead of days, and let sales create value—not copy data.
+    </p>
+    <div class="flex flex-wrap items-center gap-2 mt-3 no-print">
+      <a href="#cta" class="btn btn-primary">See It In Action</a>
+      <a href="#how" class="btn btn-ghost">How It Works</a>
+    </div>
+  </section>
+
+  <!-- Challenge + Solution -->
+  <section class="grid md:grid-cols-2 gap-3 mb-6">
+    <div class="soft avoid-break">
+      <div class="h2 tight">The Challenge</div>
+      <p class="text-[13px] text-gray-700">
+        RFQs arrive as large PDFs/Excels. Manual SKU matching & retyping into CRM takes hours/days and introduces errors—risking missed deadlines and lost deals.
+      </p>
+    </div>
+    <div class="soft avoid-break">
+      <div class="h2 tight">Our Solution</div>
+      <p class="text-[13px] text-gray-700">
+        SnapTender reads the document, identifies line items, proposes best-fit SKUs in minutes. You validate and export to CRM/ERP—so teams focus on winning proposals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Benefits (FORCED 2 columns incl. print) -->
+  <section class="mb-6">
+    <div class="h2 mb-2">Key Benefits</div>
+    <div class="two-col">
+      <div class="card avoid-break">
+        <div class="kpi">5×</div>
+        <div class="font-semibold">More tenders processed</div>
+        <p class="text-[13px] text-gray-600">Respond in hours; handle more RFQs in parallel.</p>
+      </div>
+      <div class="card avoid-break">
+        <div class="kpi">90%+</div>
+        <div class="font-semibold">Matching accuracy</div>
+        <p class="text-[13px] text-gray-600">Minimize SKU/pricing errors.</p>
+      </div>
+      <div class="card avoid-break">
+        <div class="kpi">−70%</div>
+        <div class="font-semibold">Time saved</div>
+        <p class="text-[13px] text-gray-600">Less reading/retyping; more selling.</p>
+      </div>
+      <div class="card avoid-break">
+        <div class="kpi">Plug-in</div>
+        <div class="font-semibold">Integrations & security</div>
+        <p class="text-[13px] text-gray-600">SAP, Dynamics 365, Salesforce. Azure Germany or on-prem. GDPR-ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works (3 cols on screen, 2 cols in print) -->
+  <section id="how" class="mb-6">
+    <div class="h2 mb-2">How It Works</div>
+    <div class="how-grid">
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 1</div>
+        <div class="font-semibold">Upload RFQ</div>
+        <p class="text-[13px] text-gray-600">Drag & drop PDFs, Excels, scans.</p>
+      </div>
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 2</div>
+        <div class="font-semibold">AI matches SKUs</div>
+        <p class="text-[13px] text-gray-600">Domain-trained engine proposes best matches in minutes.</p>
+      </div>
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 3</div>
+        <div class="font-semibold">Validate & export</div>
+        <p class="text-[13px] text-gray-600">Push to SAP / Dynamics 365 / Salesforce.</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-2 mt-2 text-xs">
+      <span class="badge">SAP</span><span class="badge">Microsoft Dynamics 365</span><span class="badge">Salesforce</span><span class="badge">Custom rules</span>
+    </div>
+  </section>
+
+  <!-- Use cases + Differentiators -->
+  <section class="grid md:grid-cols-2 gap-3 mb-6">
+    <div class="card avoid-break">
+      <div class="h2 tight">Typical Use Cases</div>
+      <ul class="mt-1 space-y-1 text-[13px] text-gray-700">
+        <li class="li-dot">HVAC manufacturers: large RFQs (thousands of lines), internal catalog normalization, fast accurate pricing.</li>
+        <li class="li-dot">Bid/tender teams: daily RFQ inflow, auto pre-match & prioritization, fewer errors, measurable quarterly ROI.</li>
+      </ul>
+    </div>
+    <div class="card avoid-break">
+      <div class="h2 tight">Why SnapTender</div>
+      <ul class="mt-1 space-y-1 text-[13px] text-gray-700">
+        <li class="li-dot"><strong>Trained on industrial catalogs</strong> → higher accuracy vs. generic OCR/AI.</li>
+        <li class="li-dot"><strong>On-prem or Azure Germany</strong> → full data control, GDPR.</li>
+        <li class="li-dot"><strong>Fast time-to-value</strong> → ready connectors, configurable rules.</li>
+        <li class="li-dot"><strong>Europe-focused UX</strong> → DE/EN, EU formats/time zones.</li>
+        <li class="li-dot"><strong>Security & audit</strong> → encryption, RBAC, audit logs.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section class="grid md:grid-cols-5 gap-3 mb-6">
+    <div class="soft avoid-break md:col-span-3">
+      <div class="h2 tight">Trusted by Industry</div>
+      <blockquote class="text-[13px] text-gray-800 mt-1">
+        “Thanks to SnapTender, we reduced our tender processing time by 50%, allowing our team to focus on closing more deals instead of manual data entry.”
+      </blockquote>
+      <div class="mt-1 text-xs text-gray-500">— Pavel Novotny (Systemair), Senior Application Director</div>
+    </div>
+    <div class="soft avoid-break md:col-span-2">
+      <div class="h2 tight">Ecosystem</div>
+      <div class="flex flex-wrap gap-1">
+        <span class="badge">SAP</span><span class="badge">Microsoft Azure</span><span class="badge">Salesforce</span><span class="badge">Dynamics 365</span><span class="badge">Infor M3</span>
+      </div>
+      <p class="text-[12.5px] text-gray-700 mt-2">
+        European team with deep HVAC/manufacturing expertise. Enterprise integrations, security, and rapid ROI.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="soft p-4 mb-4 avoid-break">
+    <div class="grid md:grid-cols-3 gap-4 items-center">
+      <div class="md:col-span-2">
+        <div class="h2 tight">Turn Tenders into an Advantage</div>
+        <p class="lead mt-1">Book a 30-minute demo (DE/EN) and see SnapTender on your data.</p>
+      </div>
+      <div class="no-print">
+        <a href="mailto:sales@snaptender.ai" class="btn btn-primary w-full">Request a Demo</a>
+      </div>
+    </div>
+    <div class="mt-2 text-xs text-gray-600">
+      Contact: <a href="mailto:sales@snaptender.ai" class="underline">jiri@snaptender.ai</a> · Call: +420&nbsp;606&nbsp;709&nbsp;715 · <a href="https://snaptender.ai" class="underline">snaptender.ai</a>
+    </div>
+  </section>
+
+  <footer class="text-[11px] text-gray-500">
+    © 2025 SnapTender s.r.o. · EU-based · GDPR-ready
+  </footer>
+</main>
+</body>
+</html>
