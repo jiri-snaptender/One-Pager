@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SnapTender — AI One-Pager (Compact)</title>
+<title>SnapTender — AI One-Pager</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,38 +13,136 @@
   /* Brand */
   :root{
     --ink:#111827; --muted:#5A668E; --line:#E5E7EB; --soft:#F9FAFB; --bg:#FFFFFF;
-    --primary:#433AFF; --primary-2:#8A3FFC;
+    --primary:#4338CA; --primary-2:#5B46E0;
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
   }
-  html,body{ background:var(--bg); color:var(--ink); font-family:'Roboto Mono', monospace; -webkit-font-smoothing:antialiased;}
-  .font-riosark{ font-family:'Riosark', sans-serif; }
+  html,body{ 
+    background:var(--bg); 
+    color:var(--ink); 
+    font-family:'Roboto Mono', monospace; 
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+.font-riosark{ font-family:'Riosark', sans-serif; }
 
   /* Compact spacing & typography */
-  .wrap{ max-width:980px; }
-  .h1{ font-family:'Riosark',sans-serif; font-weight:800; font-size:clamp(28px,4vw,40px); line-height:1.15; }
-  .h2{ font-family:'Riosark',sans-serif; font-weight:800; font-size:clamp(18px,2.2vw,24px); line-height:1.2; }
-  .lead{ color:#4b5563; font-size:14px; }
-  .badge{ border:1px solid var(--line); border-radius:999px; padding:.2rem .55rem; font-size:11px; background:#fff; }
-  .card{ border:1px solid var(--line); background:#fff; border-radius:12px; padding:12px; }
-  .soft{ border:1px solid var(--line); background:var(--soft); border-radius:12px; padding:12px; }
-  .kpi{ font-weight:800; font-size:22px; }
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; font-weight:700; border-radius:.55rem; padding:.6rem .9rem; border:2px solid transparent; }
-  .btn-primary{ background:var(--primary); color:#fff; }
-  .btn-primary:hover{ background:var(--primary-2); }
-  .btn-ghost{ background:#fff; border-color:var(--muted); color:var(--muted); }
-  .li-dot{ position:relative; padding-left:1rem; }
-  .li-dot:before{ content:''; position:absolute; left:0; top:.6rem; width:7px; height:7px; border-radius:999px; background:var(--primary-2); }
-
-  /* --- NEW: deterministic 2-up grids (including print) --- */
-  .two-col{ display:grid; grid-template-columns:1fr; gap:12px; }
-  @media (min-width: 768px){ .two-col{ grid-template-columns:repeat(2,1fr); } }
+  .wrap{ 
+    max-width:980px; 
+    margin:0 auto;
+    padding:2rem 1.5rem;
+  }
+.h1{ 
+    font-family:'Riosark',sans-serif; 
+    font-weight:800; 
+    font-size:clamp(32px,4.5vw,48px); 
+    line-height:1.1;
+    letter-spacing:-0.02em;
+  }
+  .h2{ 
+    font-family:'Riosark',sans-serif; 
+    font-weight:800; 
+    font-size:clamp(20px,2.5vw,28px); 
+    line-height:1.2;
+    letter-spacing:-0.01em;
+    margin-bottom:0.5rem;
+  }
+  .lead{ 
+    color:#4b5563; 
+    font-size:16px; 
+    max-width:680px;
+    line-height:1.6;
+  }
+.badge{ border:1px solid var(--line); border-radius:999px; padding:.2rem .55rem; font-size:11px; background:#fff; }
+  .card{ 
+    border:1px solid var(--line); 
+    background:#fff; 
+    border-radius:12px; 
+    padding:1.5rem;
+    transition:all 0.2s ease;
+  }
+  .card:hover{
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transform:translateY(-2px);
+  }
+  .soft{ 
+    border:1px solid var(--line); 
+    background:var(--soft); 
+    border-radius:12px; 
+    padding:1.5rem;
+    transition:all 0.2s ease;
+  }
+  .soft:hover{
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  }
+  .kpi{ 
+    font-weight:800; 
+    font-size:28px; 
+    margin-bottom:0.5rem;
+    background:var(--gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    display:inline-block;
+  }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; font-weight:700; border-radius:.55rem; padding:.6rem .9rem; border:2px solid transparent; }
+  .btn-primary{ 
+    background:var(--gradient); 
+    color:#fff; 
+    transition:all 0.2s ease;
+    box-shadow:0 2px 4px rgba(0,0,0,0.05);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-1px); 
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+  }
+.btn-ghost{ background:#fff; border-color:var(--muted); color:var(--muted); }
+  .li-dot{ 
+    position:relative; 
+    padding-left:1.25rem; 
+    margin-bottom:0.5rem;
+  }
+  .li-dot:before{ 
+    content:''; 
+    position:absolute; 
+    left:0; 
+    top:.7rem; 
+    width:8px; 
+    height:8px; 
+    border-radius:999px; 
+    background:var(--primary-2);
+  }
+/* --- NEW: deterministic 2-up grids (including print) --- */
+  .two-col{ 
+    display:grid; 
+    grid-template-columns:1fr; 
+    gap:1rem;
+  }
+@media (min-width: 768px){ .two-col{ grid-template-columns:repeat(2,1fr); } }
   @media print{ .two-col{ grid-template-columns:repeat(2,1fr) !important; } }
-
-  .how-grid{ display:grid; grid-template-columns:1fr; gap:12px; }
-  /* 3 cols on desktop screen, but 2 cols in print to save space */
-  @media (min-width: 768px){ .how-grid{ grid-template-columns:repeat(3,1fr); } }
-  @media print{ .how-grid{ grid-template-columns:repeat(2,1fr) !important; } }
-
-  /* Print: 2–3 A4 pages */
+  .how-grid{ 
+    display:grid; 
+    grid-template-columns:1fr; 
+    gap:1rem;
+  }
+/* 4 cols on desktop screen */
+  @media (min-width: 768px){ 
+    .how-grid{ 
+      grid-template-columns:repeat(2,1fr); 
+    }
+    .how-grid-4steps {
+      grid-template-columns:repeat(2,1fr);
+    }
+    .how-grid-4steps > div:nth-child(3),
+    .how-grid-4steps > div:nth-child(4) {
+      margin-top: 1rem;
+    }
+  }
+  @media print{ 
+    .how-grid{ 
+      grid-template-columns:repeat(2,1fr) !important; 
+    }
+  }
+/* Print: 2–3 A4 pages */
   @page{ size:A4; margin:8mm; }
   @media print{
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
@@ -54,41 +152,48 @@
     .avoid-break{ break-inside:avoid; page-break-inside:avoid; }
     .tight{ margin-top:0 !important; margin-bottom:.4rem !important; }
   }
+
+  /* --- Force How It Works section to start on new PDF page --- */
+  @media print {
+    #how {
+      break-before: page;
+      page-break-before: always;
+    }
+  }
 </style>
 </head>
 <body>
-<main class="page mx-auto wrap px-5 py-6">
-
-  <!-- Header (condensed) -->
+<main class="page wrap">
+<!-- Header (condensed) -->
   <header class="flex items-center justify-between gap-3 mb-5">
     <div class="font-riosark text-xl font-bold leading-5">
       <span class="italic">snap</span><br>tender.ai
     </div>
     <nav class="hidden md:flex items-center gap-1">
-      <span class="badge">Enterprise-ready</span>
-      <span class="badge">HVAC & Manufacturing</span>
-      <span class="badge">DACH Focus</span>
+      <span class="badge">AI-Powered</span>
+      <span class="badge">Time Savings</span>
+      <span class="badge">90% Accuracy</span>
     </nav>
-    <div class="no-print">
+<div class="no-print">
       <a href="#cta" class="btn btn-primary">Request a Demo</a>
     </div>
   </header>
 
-  <!-- Hero (tight) -->
-  <section class="mb-6">
-    <h1 class="h1">Cut Tender Assessment Time by <span style="color:var(--primary-2)">70%</span></h1>
-    <p class="lead mt-2">
-      AI platform that automates RFQ-to-SKU matching. Process <strong>5× more tenders</strong> with <strong>90%+ accuracy</strong>, respond in hours instead of days, and let sales create value—not copy data.
+  <!-- Hero -->
+  <section class="mb-8">
+    <h1 class="h1">Transform Tender Processing with AI</h1>
+    <p class="lead mt-4">
+      SnapTender Pro reduces manual work by <strong>70%</strong> while increasing accuracy to <strong>90%+</strong>. Our AI-powered platform automates RFQ-to-SKU matching so your team can focus on winning deals—not data entry.
     </p>
-    <div class="flex flex-wrap items-center gap-2 mt-3 no-print">
+<div class="flex flex-wrap items-center gap-2 mt-3 no-print">
       <a href="#cta" class="btn btn-primary">See It In Action</a>
       <a href="#how" class="btn btn-ghost">How It Works</a>
     </div>
   </section>
 
   <!-- Challenge + Solution -->
-  <section class="grid md:grid-cols-2 gap-3 mb-6">
-    <div class="soft avoid-break">
+  <section class="grid md:grid-cols-2 gap-4 mb-8">
+<div class="soft avoid-break">
       <div class="h2 tight">The Challenge</div>
       <p class="text-[13px] text-gray-700">
         RFQs arrive as large PDFs/Excels. Manual SKU matching & retyping into CRM takes hours/days and introduces errors—risking missed deadlines and lost deals.
@@ -102,9 +207,9 @@
     </div>
   </section>
 
-  <!-- Key Benefits (FORCED 2 columns incl. print) -->
-  <section class="mb-6">
-    <div class="h2 mb-2">Key Benefits</div>
+  <!-- Key Benefits -->
+  <section class="mb-8">
+<div class="h2 mb-2">Key Benefits</div>
     <div class="two-col">
       <div class="card avoid-break">
         <div class="kpi">5×</div>
@@ -129,11 +234,12 @@
     </div>
   </section>
 
-  <!-- How it works (3 cols on screen, 2 cols in print) -->
-  <section id="how" class="mb-6">
+  <!-- How it works -->
+  <div style="page-break-before: always;"></div>
+  <section id="how" class="mb-8">
     <div class="h2 mb-2">How It Works</div>
-    <div class="how-grid">
-      <div class="soft avoid-break">
+    <div class="how-grid how-grid-4steps">
+<div class="soft avoid-break">
         <div class="text-xs uppercase tracking-wider text-slate-500">Step 1</div>
         <div class="font-semibold">Upload RFQ</div>
         <p class="text-[13px] text-gray-600">Drag & drop PDFs, Excels, scans.</p>
@@ -145,18 +251,20 @@
       </div>
       <div class="soft avoid-break">
         <div class="text-xs uppercase tracking-wider text-slate-500">Step 3</div>
-        <div class="font-semibold">Validate & export</div>
-        <p class="text-[13px] text-gray-600">Push to SAP / Dynamics 365 / Salesforce.</p>
+        <div class="font-semibold">Human Validation (optional)</div>
+        <p class="text-[13px] text-gray-600">Review and adjust AI suggestions - highly recommended for critical tenders.</p>
       </div>
-    </div>
-    <div class="flex flex-wrap gap-2 mt-2 text-xs">
-      <span class="badge">SAP</span><span class="badge">Microsoft Dynamics 365</span><span class="badge">Salesforce</span><span class="badge">Custom rules</span>
-    </div>
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 4</div>
+        <div class="font-semibold">Export & Generate</div>
+        <p class="text-[13px] text-gray-600">Push to SAP/Dynamics 365/Salesforce or generate complete offer in any format.</p>
+      </div>
+</div>
   </section>
 
   <!-- Use cases + Differentiators -->
-  <section class="grid md:grid-cols-2 gap-3 mb-6">
-    <div class="card avoid-break">
+  <section class="grid md:grid-cols-2 gap-4 mb-8">
+<div class="card avoid-break">
       <div class="h2 tight">Typical Use Cases</div>
       <ul class="mt-1 space-y-1 text-[13px] text-gray-700">
         <li class="li-dot">HVAC manufacturers: large RFQs (thousands of lines), internal catalog normalization, fast accurate pricing.</li>
@@ -176,8 +284,8 @@
   </section>
 
   <!-- Social proof -->
-  <section class="grid md:grid-cols-5 gap-3 mb-6">
-    <div class="soft avoid-break md:col-span-3">
+  <section class="grid md:grid-cols-5 gap-4 mb-8">
+<div class="soft avoid-break md:col-span-3">
       <div class="h2 tight">Trusted by Industry</div>
       <blockquote class="text-[13px] text-gray-800 mt-1">
         “Thanks to SnapTender, we reduced our tender processing time by 50%, allowing our team to focus on closing more deals instead of manual data entry.”
@@ -186,34 +294,62 @@
     </div>
     <div class="soft avoid-break md:col-span-2">
       <div class="h2 tight">Ecosystem</div>
-      <div class="flex flex-wrap gap-1">
-        <span class="badge">SAP</span><span class="badge">Microsoft Azure</span><span class="badge">Salesforce</span><span class="badge">Dynamics 365</span><span class="badge">Infor M3</span>
+      <div class="mt-2">
+        <p class="text-xs text-gray-600 mb-1">Supported platforms & integrations:</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="badge">SAP</span>
+          <span class="badge">Microsoft Azure</span>
+          <span class="badge">Salesforce</span>
+          <span class="badge">Dynamics 365</span>
+          <span class="badge">Infor M3</span>
+          <span class="badge">Oracle NetSuite</span>
+        </div>
       </div>
-      <p class="text-[12.5px] text-gray-700 mt-2">
+<p class="text-[12.5px] text-gray-700 mt-2">
         European team with deep HVAC/manufacturing expertise. Enterprise integrations, security, and rapid ROI.
       </p>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cta" class="soft p-4 mb-4 avoid-break">
-    <div class="grid md:grid-cols-3 gap-4 items-center">
-      <div class="md:col-span-2">
-        <div class="h2 tight">Turn Tenders into an Advantage</div>
-        <p class="lead mt-1">Book a 30-minute demo (DE/EN) and see SnapTender on your data.</p>
+  <!-- How Collaboration Works -->
+  <section class="mb-8">
+    <div class="h2 mb-2">How Collaboration Works</div>
+    <div class="how-grid how-grid-4steps">
+<div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 1</div>
+        <div class="font-semibold">You share test data</div>
+        <p class="text-[13px] text-gray-600">The client provides a small sample of real data.</p>
       </div>
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 2</div>
+        <div class="font-semibold">We prepare a free demo (7-14 days)</div>
+        <p class="text-[13px] text-gray-600">Our team analyzes the data and builds a working demo.</p>
+      </div>
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 3</div>
+        <div class="font-semibold">We review results together</div>
+        <p class="text-[13px] text-gray-600">We walk through the results with the client and discuss improvements.</p>
+      </div>
+      <div class="soft avoid-break">
+        <div class="text-xs uppercase tracking-wider text-slate-500">Step 4</div>
+        <div class="font-semibold">We deliver a full proposal</div>
+        <p class="text-[13px] text-gray-600">Based on the demo, we prepare a complete offer.</p>
+      </div>
+    </div>
+    <p class="text-[13px] text-green-600 font-medium mt-3">🟢 The entire process is free of charge.</p>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="soft p-6 mb-6 avoid-break">
+<div class="grid md:grid-cols-3 gap-6 items-center">
+<div class="md:col-span-2">
+        <div class="h2 tight">Turn Tenders into an Advantage</div>
+        <p class="lead mt-2">Schedule a 30-minute personalized demo (available in DE/EN) to see how SnapTender Pro can transform your tender process.</p>
+</div>
       <div class="no-print">
-        <a href="mailto:sales@snaptender.ai" class="btn btn-primary w-full">Request a Demo</a>
+        <a href="mailto:jiri@snaptender.ai" class="btn btn-primary w-full">Request a Demo</a>
       </div>
     </div>
     <div class="mt-2 text-xs text-gray-600">
-      Contact: <a href="mailto:sales@snaptender.ai" class="underline">jiri@snaptender.ai</a> · Call: +420&nbsp;606&nbsp;709&nbsp;715 · <a href="https://snaptender.ai" class="underline">snaptender.ai</a>
+      Contact: <a href="mailto:jiri@snaptender.ai" class="underline">jiri@snaptender.ai</a> · Call: +420&nbsp;606&nbsp;709&nbsp;715 · <a href="https://snaptender.ai" class="underline">snaptender.ai</a>
     </div>
-  </section>
-
-  <footer class="text-[11px] text-gray-500">
-    © 2025 SnapTender s.r.o. · EU-based · GDPR-ready
-  </footer>
-</main>
-</body>
-</html>
